@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tip Calculator</title>
+
+	<style>
+		.bill-amount {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.amount-bill{
+			border: 1px solid #6D7B8D;
+			padding: 8px;
+			font-size: 20px;
+			width:  50%;
+			margin-left: 78px;
+
+		}
+
+		.tip-amount {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.amount-tip{
+			border: 1px solid #6D7B8D;
+			padding: 8px;
+			font-size: 20px;
+			width:  50%;
+			margin-left: 30px;
+
+		}
+
+		.button {
+			background-color: #2B65EC;
+			height: 35px;
+			margin-left: 220px;
+			border-radius: 10px;
+		}
+
+		h2 {
+			margin-left: 220px;
+		}
+
+		#copy {
+			margin-top: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Tip Calculator</h1>
+
+	<p class="bill-amount">Bill Amount (£): <input type="number" class="amount-bill"></p>
+
+	<p class="tip-amount">Tip Amount (as a %): <input type="number" class="amount-tip"></p>
+
+	<button class="button" onclick="calculate()">Calculate Tip & Total Bill</button>
+
+
+	<h2 class="tip"></h2>
+	<h2 class="bill-with-tip"></h2>
+
+
+		<p id="copy">&#x24B8; Taufique Azad </p>
+<script>
+	function calculate() {
+		var inputOne = document.querySelector(".amount-bill");
+		var billAmount = Number(inputOne.value);
+		var inputTwo = document.querySelector(".amount-tip");
+		var tipAmount = Number(inputTwo.value);
+		tipAmount = tipAmount/100;
+		var tipYouGot = (tipAmount * billAmount);
+		var total = (tipYouGot + billAmount);
+
+		var h2 = document.querySelector(".tip");
+		h2.innerText = "Total Tip: £"+tipYouGot.toFixed(2);
+
+		var second = document.querySelector(".bill-with-tip");
+		second.innerText ="Total Bill including the tip: £"+ total.toFixed(2);
+
+	}
+</script>
+</body>
+</html>
